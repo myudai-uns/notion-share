@@ -571,6 +571,50 @@
   }
   .strength-item p { font-size: 13px; color: var(--text-sub); }
 
+  /* ========== Image ========== */
+  .figure {
+    margin: 24px 0 8px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .figure figcaption {
+    padding: 10px 18px;
+    font-size: 12px;
+    color: var(--text-sub);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+  .figure.banner {
+    margin: -60px auto 40px;
+    max-width: 1100px;
+    position: relative;
+    z-index: 2;
+  }
+  .figure.banner img {
+    max-height: 380px;
+    object-fit: cover;
+  }
+  .fig-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .fig-grid .figure { margin: 0; }
+  .fig-grid .figure img { height: 220px; object-fit: cover; }
+  @media (max-width: 760px) {
+    .fig-grid { grid-template-columns: 1fr; }
+    .figure.banner { margin: -30px 16px 30px; }
+  }
+
   /* ========== Footer ========== */
   footer {
     background: var(--primary-dark);
@@ -621,6 +665,11 @@
     </p>
   </div>
 </header>
+
+<figure class="figure banner">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/211028_Sendai_Airport_Sendai_Miyagi_prefecture_Japan01bs.jpg/1280px-211028_Sendai_Airport_Sendai_Miyagi_prefecture_Japan01bs.jpg" alt="仙台空港 空撮" loading="lazy">
+  <figcaption>仙台空港（2021年撮影）／ Photo: Wikimedia Commons</figcaption>
+</figure>
 
 <!-- ========== 1. 背景 ========== -->
 <section id="background">
@@ -712,6 +761,11 @@
         <p>旅行に行きたい気持ちはあっても、「どこに行けばいいかわからない」「誰と行くか決まらない」「予算や予定の立て方がわからない」といった理由で止まりやすい。</p>
       </div>
     </div>
+
+    <figure class="figure">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Sendai-Inside.jpg/1280px-Sendai-Inside.jpg" alt="仙台空港 ターミナル内部" loading="lazy">
+      <figcaption>仙台空港ターミナル内部 — 「保安検査、持ち物、搭乗までの流れ」が見えづらい点が心理的ハードルになっている／ Photo: Wikimedia Commons</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -950,6 +1004,17 @@
       <div class="section-num">SECTION 08</div>
       <h2>実施候補施設</h2>
       <p class="lead">大学生が立ち寄りやすく、ポップアップや相談ブースとの相性がよい施設候補。</p>
+    </div>
+
+    <div class="fig-grid">
+      <figure class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kawauchi_campus_of_Tohoku_University_20220910a.jpg/1280px-Kawauchi_campus_of_Tohoku_University_20220910a.jpg" alt="東北大学 川内キャンパス" loading="lazy">
+        <figcaption>東北大学 川内キャンパス — 大学生の日常接点が集まるエリア／ Photo: Wikimedia Commons</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sendai_Airport_Building_front.jpg/1280px-Sendai_Airport_Building_front.jpg" alt="仙台空港 ターミナルビル外観" loading="lazy">
+        <figcaption>仙台空港ターミナルビル — 施策のゴール地点となる空港／ Photo: Wikimedia Commons</figcaption>
+      </figure>
     </div>
 
     <div class="facility-card">
