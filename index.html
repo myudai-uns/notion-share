@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仙台空港 × 大学生｜SNS×イベント年間企画</title>
+<style>
+  :root {
+    --primary: #0a6dc2;
+    --primary-dark: #003d7a;
+    --primary-light: #e8f3fc;
+    --accent: #f59e0b;
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --text: #1a2b3c;
+    --text-sub: #5a6b7c;
+    --border: #e2e8f0;
+    --shadow: 0 4px 20px rgba(10, 40, 80, 0.08);
+    --shadow-lg: 0 10px 40px rgba(10, 40, 80, 0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    font-family: -apple-system, "Yu Gothic", "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--primary); text-decoration: none; }
+
+  /* ========== Navigation ========== */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 14px 0;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-brand {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .nav-brand span { color: var(--primary); }
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+  .nav-links a {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: var(--text-sub);
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+  }
+
+  /* ========== Hero ========== */
+  .hero {
+    background: linear-gradient(135deg, #003d7a 0%, #0a6dc2 60%, #2196f3 100%);
+    color: white;
+    padding: 100px 24px 120px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: "✈";
+    position: absolute;
+    top: 40px;
+    right: 8%;
+    font-size: 180px;
+    opacity: 0.08;
+    transform: rotate(-20deg);
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(120deg, transparent 0%, transparent 40%, rgba(245,158,11,0.4) 40%, rgba(245,158,11,0.4) 95%, transparent 95%);
+  }
+  .hero-sub {
+    font-size: 17px;
+    opacity: 0.9;
+    max-width: 720px;
+    line-height: 1.8;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+  }
+  .hero-stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== Container ========== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section {
+    padding: 72px 0 24px;
+  }
+  .section-head {
+    margin-bottom: 36px;
+  }
+  .section-num {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 4px 12px;
+    background: var(--primary-light);
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: 30px;
+    color: var(--primary-dark);
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+  .section-head .lead {
+    margin-top: 14px;
+    color: var(--text-sub);
+    font-size: 16px;
+    max-width: 780px;
+  }
+
+  /* ========== Card ========== */
+  .card {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card + .card { margin-top: 20px; }
+  .card p { color: var(--text); }
+  .card ul { margin: 10px 0 10px 4px; list-style: none; }
+  .card ul li {
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .card ul li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+  }
+
+  /* ========== Grid ========== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 760px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .section-head h2 { font-size: 22px; }
+  }
+
+  /* ========== Target cards ========== */
+  .target-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+  .target-card:hover { transform: translateY(-4px); }
+  .target-card .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .target-card h4 {
+    font-size: 16px;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .target-card p {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.75;
+  }
+
+  /* ========== Issue cards ========== */
+  .issue-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .issue-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--accent);
+  }
+  .issue-card .label {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .issue-card h4 {
+    font-size: 18px;
+    color: var(--primary-dark);
+    margin: 4px 0 10px;
+    font-weight: 700;
+  }
+  .issue-card p {
+    font-size: 13.5px;
+    color: var(--text-sub);
+  }
+
+  /* ========== Flow ========== */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 200px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .flow-step .n {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+  .flow-step h5 {
+    font-size: 15px;
+    color: var(--primary-dark);
+    margin: 4px 0 8px;
+    font-weight: 700;
+  }
+  .flow-step p { font-size: 13px; color: var(--text-sub); }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 800;
+  }
+  @media (max-width: 760px) {
+    .flow-arrow { transform: rotate(90deg); margin: 0 auto; }
+  }
+
+  /* ========== Initiative (SNS/Event) ========== */
+  .initiative {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .initiative-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .initiative-badge {
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .initiative-badge.event { background: var(--accent); }
+  .initiative-head h3 {
+    font-size: 19px;
+    color: var(--primary-dark);
+    font-weight: 700;
+    flex: 1;
+  }
+  .initiative-body h5 {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 16px 0 6px;
+    text-transform: uppercase;
+  }
+  .initiative-body p { font-size: 14px; color: var(--text); }
+  .initiative-body ul { margin: 4px 0 4px 4px; list-style: none; }
+  .initiative-body ul li {
+    padding-left: 18px;
+    position: relative;
+    font-size: 13.5px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .initiative-body ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 2px;
+    color: var(--primary);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .tag {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+
+  /* ========== Facility ========== */
+  .facility-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 22px 26px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+  }
+  .facility-card .no {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  .facility-card h4 {
+    display: inline-block;
+    font-size: 16px;
+    color: var(--primary-dark);
+    font-weight: 700;
+  }
+  .facility-card p {
+    margin: 10px 0;
+    font-size: 13.5px;
+    color: var(--text-sub);
+  }
+
+  /* ========== Timeline (calendar) ========== */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+  .tl-month {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    font-size: 13px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .tl-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+  }
+  .tl-card .state { font-size: 13.5px; color: var(--text-sub); margin-bottom: 8px; }
+  .tl-card .appeal {
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+  }
+  .tl-card ul { list-style: none; }
+  .tl-card ul li {
+    padding-left: 18px;
+    position: relative;
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+  .tl-card ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 2px;
+    color: var(--primary);
+  }
+
+  /* ========== Highlight box ========== */
+  .highlight-box {
+    background: linear-gradient(135deg, #003d7a 0%, #0a6dc2 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: var(--shadow-lg);
+    margin: 20px 0;
+  }
+  .highlight-box h3 {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .highlight-box p {
+    opacity: 0.95;
+    line-height: 1.9;
+  }
+
+  /* ========== Strength ========== */
+  .strength-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 760px) {
+    .strength-list { grid-template-columns: 1fr; }
+  }
+  .strength-item {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .strength-item .mark {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .strength-item h5 {
+    font-size: 14px;
+    color: var(--primary-dark);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .strength-item p { font-size: 13px; color: var(--text-sub); }
+
+  /* ========== Footer ========== */
+  footer {
+    background: var(--primary-dark);
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 40px 24px;
+    margin-top: 80px;
+    font-size: 13px;
+  }
+  footer .brand {
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">✈ 仙台空港 × <span>大学生</span></div>
+    <div class="nav-links">
+      <a href="#background">背景</a>
+      <a href="#target">ターゲット</a>
+      <a href="#issues">課題</a>
+      <a href="#strategy">方針</a>
+      <a href="#sns">SNS施策</a>
+      <a href="#event">イベント施策</a>
+      <a href="#facility">実施場所</a>
+      <a href="#calendar">年間計画</a>
+      <a href="#summary">要約</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">ANNUAL MARKETING PLAN / 2026</div>
+    <h1>
+      仙台空港を、大学生の<br>
+      <span class="highlight">"身近な旅の入口"</span>に。
+    </h1>
+    <p class="hero-sub">
+      大学生が感じる旅行のハードルを分解し、SNS施策とイベント施策の両軸から継続的にアプローチする年間企画。「意外と簡単」「意外と安い」「思ったより面白い」を体験として届ける。
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">ターゲット層</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3 + 3</div>
+        <div class="hero-stat-label">SNS・イベント施策</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">年間キャンペーン時期</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== 1. 背景 ========== -->
+<section id="background">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 01</div>
+      <h2>企画背景</h2>
+      <p class="lead">仙台空港は「存在は知っているが、自分の移動手段としては想起しにくい場所」になっている。</p>
+    </div>
+
+    <div class="card">
+      <p>大学生にとって旅行は関心の高いテーマである一方で、仙台空港は「存在は知っているが、自分の移動手段としては想起しにくい場所」になっている。特に大学生は、以下のような理由から、旅行の選択肢として飛行機を十分に検討できていないと考えられる。</p>
+      <ul>
+        <li>空港利用の流れがわからず、不安がある</li>
+        <li>飛行機は高いという先入観がある</li>
+        <li>旅行に行きたい気持ちはあっても、きっかけや後押しがない</li>
+      </ul>
+      <p style="margin-top:14px;">そのため本企画では、大学生が感じる旅行のハードルを分解し、SNS施策とイベント施策の両軸からアプローチすることで、仙台空港を <strong>「意外と簡単」「意外と安い」「思ったより面白い」</strong> と感じてもらう導線を設計する。</p>
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <div class="section-num">SECTION 02</div>
+      <h2>企画目的</h2>
+    </div>
+    <div class="card">
+      <p>本企画の目的は、大学生に対して仙台空港を<strong>身近な移動手段として再認識</strong>してもらい、旅行の具体的なイメージ形成と利用意向の向上を図ることである。</p>
+      <p style="margin-top:10px;">また、SNSによる継続的な接触と、イベントによる体験・相談機会を組み合わせることで、単発の認知ではなく、<strong>興味喚起から行動変容まで</strong>を一貫して設計する。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. ターゲット ========== -->
+<section id="target">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 03</div>
+      <h2>ターゲット</h2>
+      <p class="lead">主対象は大学生。訴求設計上は以下の4層に整理する。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="target-card">
+        <div class="icon">①</div>
+        <h4>旅行好き層</h4>
+        <p>普段から旅行への関心が高く、行き先や移動手段を比較している層。価格や時間の合理性に反応しやすい。</p>
+      </div>
+      <div class="target-card">
+        <div class="icon">②</div>
+        <h4>行きたいが動けていない層</h4>
+        <p>旅行意欲はあるが、予算、計画、同行者などの理由で実際の行動に移せていない層。後押しや具体的なモデル提示が有効。</p>
+      </div>
+      <div class="target-card">
+        <div class="icon">③</div>
+        <h4>旅行初心者・不安層</h4>
+        <p>飛行機利用や空港利用への不安が大きい層。空港での流れ、可視化された情報、疑似体験が有効である。</p>
+      </div>
+      <div class="target-card">
+        <div class="icon">④</div>
+        <h4>留学生・国際志向層</h4>
+        <p>国内外の移動や国際交流への関心が高い層。国際系イベントや多言語対応企画と相性がよい。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. 課題 ========== -->
+<section id="issues">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 04</div>
+      <h2>大学生の旅行課題</h2>
+      <p class="lead">大学生の課題は、次の3つに整理できる。</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="issue-card">
+        <div class="label">ISSUE 01</div>
+        <h4>心理的ハードル</h4>
+        <p>飛行機や空港利用の流れがわからず、「難しそう」「面倒そう」という印象を持ちやすい。旅行初心者にとっては、保安検査、持ち物、搭乗までの流れが見えづらく、不安になりやすい。</p>
+      </div>
+      <div class="issue-card">
+        <div class="label">ISSUE 02</div>
+        <h4>費用ハードル</h4>
+        <p>飛行機は高いという先入観があり、そもそも比較対象に入りにくい。実際にはLCCやキャンペーン、移動全体の所要時間を考えると合理的なケースもあるが、その情報が十分届いていない。</p>
+      </div>
+      <div class="issue-card">
+        <div class="label">ISSUE 03</div>
+        <h4>きっかけ不足</h4>
+        <p>旅行に行きたい気持ちはあっても、「どこに行けばいいかわからない」「誰と行くか決まらない」「予算や予定の立て方がわからない」といった理由で止まりやすい。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. 施策全体方針 ========== -->
+<section id="strategy">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 05</div>
+      <h2>施策全体方針</h2>
+      <p class="lead">SNS施策 と イベント施策 の両軸で旅行需要喚起を行う。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div style="font-size:11px; color:var(--primary); font-weight:700; letter-spacing:0.15em;">5-1 / SNS施策の役割</div>
+        <h3 style="font-size:18px; color:var(--primary-dark); margin:6px 0 12px;">心理的ハードルを下げる継続発信</h3>
+        <p>「意外と簡単」「意外と安い」「自分にもできそう」と思ってもらうための継続発信を担う。</p>
+        <h5 style="margin-top:14px; color:var(--primary); font-size:12px;">3つの伝達軸</h5>
+        <ul>
+          <li><strong>意外と安い</strong>：遠方都市への移動で仙台空港発が総額・効率面で有利なことを示す</li>
+          <li><strong>意外と簡単</strong>：予約・チェックイン・移動の流れが難しくないことを示す</li>
+          <li><strong>自分にもできそう</strong>：計画や予約に苦手意識がある層の不安を和らげる</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="font-size:11px; color:var(--accent); font-weight:700; letter-spacing:0.15em;">5-2 / イベント施策の役割</div>
+        <h3 style="font-size:18px; color:var(--primary-dark); margin:6px 0 12px;">実際に体験して納得する価値を提供</h3>
+        <p>SNSだけでは伝えきれない「実際に体験して納得する価値」を提供する。旅行相談、ゲーム、疑似体験などを通じて、大学生が空港利用や旅行をより具体的にイメージできる場をつくる。</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:14px; color:var(--primary); font-weight:700; letter-spacing:0.1em; margin:40px 0 16px;">5-3 / 両軸で行う理由 ー 発信ループの形成</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="n">STEP 01</div>
+        <h5>SNSで興味をつくる</h5>
+        <p>継続的な発信で「気になる」を生む</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="n">STEP 02</div>
+        <h5>イベントで体験する</h5>
+        <p>相談・ゲーム・疑似体験で納得する</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="n">STEP 03</div>
+        <h5>再びSNSで発信</h5>
+        <p>体験の様子が拡散され、次の学生へ</p>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:16px;">
+      <h3>学生の不安に対する提示</h3>
+      <div class="grid-2" style="color:white; margin-top:10px;">
+        <ul style="list-style:none;">
+          <li style="margin-bottom:8px;">● どこに行けばよいかわからない<br><span style="opacity:0.75; padding-left:14px;">→ 予算・日数・目的別におすすめの行先を示す</span></li>
+          <li style="margin-bottom:8px;">● いくらかかるかわからない<br><span style="opacity:0.75; padding-left:14px;">→ 総額の目安や、安く行ける条件を示す</span></li>
+          <li style="margin-bottom:8px;">● 航空券の探し方がわからない<br><span style="opacity:0.75; padding-left:14px;">→ 検索サイトや予約手順を示す</span></li>
+        </ul>
+        <ul style="list-style:none;">
+          <li style="margin-bottom:8px;">● 何を準備すればよいかわからない<br><span style="opacity:0.75; padding-left:14px;">→ 持ち物のチェックリストを示す</span></li>
+          <li style="margin-bottom:8px;">● 空港で何をすればよいかわからない<br><span style="opacity:0.75; padding-left:14px;">→ 到着から搭乗までを順番に示す</span></li>
+          <li style="margin-bottom:8px;">● 当日トラブルなく移動できるか不安<br><span style="opacity:0.75; padding-left:14px;">→ 計画から当日までを実例で示す</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. SNS施策案 ========== -->
+<section id="sns">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 06</div>
+      <h2>SNS施策案</h2>
+      <p class="lead">3つの継続発信施策で、旅行への心理的ハードルを下げ、学生に「自分ごと」として受け止めてもらう。</p>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-head">
+        <span class="initiative-badge">SNS 01</span>
+        <h3>学生による旅行体験連載企画</h3>
+      </div>
+      <div class="initiative-body">
+        <p>学生自身の視点で、旅行の計画段階から出発、当日移動、現地体験までを追う連載型企画。単なる旅行動画ではなく、「お金どうしよう」「単位大丈夫か」「行き当たりばったりでも行けるのか」といった学生らしいリアルな日常も含めて発信し、共感性を高める。</p>
+        <h5>解決する課題</h5>
+        <div class="tags"><span class="tag">心理的ハードル</span><span class="tag">きっかけ不足</span></div>
+        <h5>想定内容</h5>
+        <ul>
+          <li>テスト終わりに仙台空港から旅行してみた</li>
+          <li>川内／仙台駅から仙台空港までどれくらいで着くか</li>
+          <li>旅行前の予算計画と準備</li>
+          <li>初めて飛行機に乗る学生の1日</li>
+          <li>行き当たりばったりでも意外と行けた学生旅行密着企画</li>
+        </ul>
+        <h5>主に届かせたい層</h5>
+        <div class="tags"><span class="tag">行きたいが動けていない層</span><span class="tag">旅行好き層</span><span class="tag">旅行初心者・不安層</span></div>
+      </div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-head">
+        <span class="initiative-badge">SNS 02</span>
+        <h3>価格・時間・手軽さの比較コンテンツ</h3>
+      </div>
+      <div class="initiative-body">
+        <p>バス、新幹線、飛行機の比較や、LCC・キャンペーン情報などを用いて、「仙台空港を使うと意外と合理的」という認識をつくる。保存・共有されやすい情報投稿として展開する。</p>
+        <h5>解決する課題</h5>
+        <div class="tags"><span class="tag">費用ハードル</span></div>
+        <h5>想定内容</h5>
+        <ul>
+          <li>関西に行くなら、バスより飛行機が安い場合もある</li>
+          <li>韓国は学生予算でどこまで行けるか</li>
+          <li>仙台空港発の週末旅行モデル</li>
+          <li>時間／価格比較の一覧投稿</li>
+        </ul>
+        <h5>主に届かせたい層</h5>
+        <div class="tags"><span class="tag">旅行好き層</span><span class="tag">行きたいが動けていない層</span><span class="tag">旅行低関心層</span></div>
+      </div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-head">
+        <span class="initiative-badge">SNS 03</span>
+        <h3>行き先別・シーン別の旅行提案コンテンツ</h3>
+      </div>
+      <div class="initiative-body">
+        <p>仙台空港を使った旅行を、学生の属性や旅行シーンごとに整理して提案する企画。「一人旅」「友達旅」「カップル旅」「留学生向け」「テスト終わり旅行」など、学生が自分に近い条件で旅行を想像できる形に落とし込む。</p>
+        <h5>解決する課題</h5>
+        <div class="tags"><span class="tag">きっかけ不足</span><span class="tag">旅行スタイル不明</span><span class="tag">行き先選定ハードル</span></div>
+        <h5>想定内容</h5>
+        <ul>
+          <li>一人旅におすすめの仙台空港発旅行先</li>
+          <li>友達と週末に行ける旅行モデル</li>
+          <li>カップル向けの短期旅行プラン</li>
+          <li>留学生におすすめの国内旅行先</li>
+          <li>テスト終わりに行きたいご褒美旅行</li>
+          <li>3万円以内で行ける旅行先まとめ</li>
+        </ul>
+        <h5>期待される効果</h5>
+        <ul>
+          <li>旅行を自分ごととして捉えやすくなる</li>
+          <li>シリーズ化しやすく、投稿テーマを継続的に量産できる</li>
+          <li>旅行需要喚起に直結しやすい</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. イベント施策 ========== -->
+<section id="event">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 07</div>
+      <h2>イベント施策案</h2>
+      <p class="lead">SNSで接点を持った学生に、リアルな体験価値を届ける3つのブース施策。</p>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-head">
+        <span class="initiative-badge event">EVENT 01</span>
+        <h3>旅行相談ブース</h3>
+      </div>
+      <div class="initiative-body">
+        <p>大学生や旅行初心者が気軽に相談できるブースを設置する。単なる案内ではなく、<strong>「来ると自分向けの旅行の解像度が上がる場」</strong>として設計する。</p>
+        <h5>来場価値</h5>
+        <ul>
+          <li>自分の予算や予定に合う旅行案が見える</li>
+          <li>旅行の不安をその場で解消できる</li>
+          <li>一人旅／友達旅／初海外など、自分に近い事例が聞ける</li>
+        </ul>
+        <h5>想定内容</h5>
+        <ul>
+          <li>おすすめ行き先相談</li>
+          <li>予算別旅行相談</li>
+          <li>一人旅／友達旅／カップル旅相談</li>
+          <li>初めての飛行機利用相談</li>
+        </ul>
+        <h5>主に届かせたい層</h5>
+        <div class="tags"><span class="tag">行きたいが動けていない層</span><span class="tag">旅行初心者・不安層</span><span class="tag">留学生・国際志向層</span></div>
+      </div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-head">
+        <span class="initiative-badge event">EVENT 02</span>
+        <h3>参加型ゲーム・疑似体験ブース</h3>
+      </div>
+      <div class="initiative-body">
+        <p>短時間で参加できるゲーム形式の企画を通じて、<strong>遊びながら旅行・空港利用に詳しくなれる</strong>ブースを設計する。「来たくなる理由」が明確な、面白さのある企画を中心に構成する。</p>
+        <h5>有力企画例</h5>
+        <ul>
+          <li>7kg機内持ち込みパッキング対決</li>
+          <li>飛行機に持ち込める／持ち込めないクイズ</li>
+          <li>空港・税関英語チャレンジ</li>
+          <li>予算当てクイズ</li>
+          <li>所要時間当てクイズ</li>
+          <li>空港全館チャレンジ</li>
+          <li>留学生対日本人の空港クイズ対決</li>
+        </ul>
+        <h5>来場価値</h5>
+        <ul>
+          <li>短時間で参加できる</li>
+          <li>ゲーム感覚で楽しい</li>
+          <li>終わったあとに「意外と空港って難しくない」と思える</li>
+          <li>そのままSNSでシェアしたくなる</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-head">
+        <span class="initiative-badge event">EVENT 03</span>
+        <h3>学内・地域イベント連動企画</h3>
+      </div>
+      <div class="initiative-body">
+        <p>学内外のイベントと連動し、<strong>ポップアップ型</strong>で旅行相談や体験ブースを展開する。SNSで認知した学生が実際に接触できる場として設計する。</p>
+        <h5>期待役割</h5>
+        <ul>
+          <li>認知から体験への接続</li>
+          <li>偶発的な接触の創出</li>
+          <li>イベント自体をSNS素材として再活用</li>
+        </ul>
+        <h5>主に届かせたい層</h5>
+        <div class="tags"><span class="tag">留学生・国際志向層</span><span class="tag">旅行初心者・不安層</span><span class="tag">旅行低関心層</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. 実施場所 ========== -->
+<section id="facility">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 08</div>
+      <h2>実施候補施設</h2>
+      <p class="lead">大学生が立ち寄りやすく、ポップアップや相談ブースとの相性がよい施設候補。</p>
+    </div>
+
+    <div class="facility-card">
+      <span class="no">1</span><h4>東北大学 川内北キャンパス周辺</h4>
+      <p>学生導線上にあり、日常接点をつくりやすい。相談ブースや参加型企画と相性がよい。</p>
+      <div class="tags"><span class="tag">旅行相談ブース</span><span class="tag">参加型ゲームブース</span><span class="tag">新入生向け認知施策</span></div>
+    </div>
+    <div class="facility-card" style="margin-top:16px;">
+      <span class="no">2</span><h4>東北大学百周年記念会館 川内萩ホール前広場</h4>
+      <p>国際系イベントとの親和性が高く、留学生向け施策とも接続しやすい。</p>
+      <div class="tags"><span class="tag">留学生連動企画</span><span class="tag">国際路線訴求</span><span class="tag">相談＋体験ブース複合</span></div>
+    </div>
+    <div class="facility-card" style="margin-top:16px;">
+      <span class="no">3</span><h4>国際センター駅のブース</h4>
+      <p>地下鉄利用者との偶発接触をつくりやすく、短時間接触型の企画に向いている。相談窓口、予算クイズ、簡易な告知施策との相性がよい。</p>
+      <div class="tags"><span class="tag">短時間接触型認知施策</span><span class="tag">簡易相談ブース</span><span class="tag">クイズ企画</span><span class="tag">イベント告知</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 9. 年間カレンダー ========== -->
+<section id="calendar">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 09</div>
+      <h2>年間投稿・施策カレンダー</h2>
+      <p class="lead">大学生の1年の感情や行動に合わせて投稿テーマを設計する。</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-month">5月</div>
+        <div class="tl-card">
+          <div class="state">新生活にも慣れ、授業やアルバイトのペースをつかみ、長めに休みを取りやすくなる時期。</div>
+          <div class="appeal">→ 「空港ってどう使うのか」「初めてでも行ける」を訴求</div>
+          <ul>
+            <li>初めての飛行機利用の流れ</li>
+            <li>川内から仙台空港までどれくらいかかるか</li>
+            <li>一人旅初心者向け投稿</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-month">8 〜 9月</div>
+        <div class="tl-card">
+          <div class="state">前期の授業が終わり、テスト期間から解放された直後の長期休暇で、旅行意欲が高まりやすい時期。</div>
+          <div class="appeal">→ 「安く行ける」「実際に行ってみた」を強化</div>
+          <ul>
+            <li>旅行体験連載</li>
+            <li>予算比較投稿</li>
+            <li>LCC／キャンペーン情報</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-month">11 〜 12月</div>
+        <div class="tl-card">
+          <div class="state">学園祭が終わり、1月のテスト期間までの間で、比較的余裕のある時期。遠方出身者は帰省のために使用する。年末年始休暇と併せて、長期旅行を企画する人がいる。</div>
+          <div class="appeal">→ 帰省・年末年始の長期旅行需要に応じた発信</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-month">2 〜 3月</div>
+        <div class="tl-card">
+          <div class="state">後期の授業が終わり、テスト期間から解放された直後の長期休暇で、旅行意欲が高まりやすい時期。仙台は寒いので、南方に旅行しに行きたい。</div>
+          <div class="appeal">→ 「今からでも行ける」「短期でも行ける」を訴求</div>
+          <ul>
+            <li>春休み旅行モデル</li>
+            <li>短期旅行比較</li>
+            <li>旅行仲間探し系企画</li>
+            <li>初海外向け投稿</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 10. 強み ========== -->
+<section id="strength">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 10</div>
+      <h2>本企画の強み</h2>
+      <p class="lead">単に「空港の魅力を伝える」のではなく、大学生が旅行でつまずくポイントを起点に企画を構成している。</p>
+    </div>
+
+    <div class="strength-list">
+      <div class="strength-item">
+        <div class="mark">🎯</div>
+        <h5>課題起点の設計</h5>
+        <p>不安→流れを見せる／高いと思われている→比較する／きっかけがない→相談と体験の場をつくる、という筋の通った構造。</p>
+      </div>
+      <div class="strength-item">
+        <div class="mark">👥</div>
+        <h5>層別の訴求設計</h5>
+        <p>大学生を一括りにせず、旅行好き層、行きたいが動けていない層、旅行初心者・不安層、留学生・国際志向層に分けて訴求を変える。</p>
+      </div>
+      <div class="strength-item">
+        <div class="mark">🔄</div>
+        <h5>SNS×体験の循環</h5>
+        <p>SNSで手軽さや面白さを伝え、イベントで実体験に近い価値を提供。旅行をより具体的に想像できる状態をつくる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 11. 要約 ========== -->
+<section id="summary">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">SECTION 11</div>
+      <h2>提案時の要約</h2>
+    </div>
+
+    <div class="highlight-box">
+      <h3>One Sentence Summary</h3>
+      <p>本企画では、主要ターゲットである大学生を、「旅行好き層」「行きたいが動けていない層」「旅行初心者・不安層」「留学生・国際志向層」の4層に整理し、それぞれの課題に応じてSNS施策とイベント施策を設計する。</p>
+      <p style="margin-top:14px;">SNSでは、学生による旅行体験連載、価格・時間比較、行き先別・シーン別の旅行提案コンテンツを展開し、イベントでは、旅行相談ブース、参加型ゲーム・疑似体験ブース、学内外イベント連動企画を実施する。実施候補としては、東北大学川内北キャンパス、川内萩ホール前広場、国際センター駅のブースなど、大学生が立ち寄りやすい場所を活用する。</p>
+      <p style="margin-top:14px;"><strong>SNSで興味をつくり、イベントで体験を生み、その体験を再びSNSで拡散するループを形成することで、仙台空港を大学生にとって身近で使いやすい存在として再認識させる。</strong></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">✈ 仙台空港 × 大学生 Annual Plan</div>
+  <div>SNS × Event Integrated Marketing Proposal / 2026</div>
+</footer>
+
+</body>
+</html>
